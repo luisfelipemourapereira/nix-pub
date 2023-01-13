@@ -1,2 +1,2 @@
 # nix-pub
-public nix packages, modules, and functions
+public nix packages and modules
