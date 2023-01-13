@@ -8,8 +8,8 @@
       let
         system = "x86_64-linux";
         pkgs = import nixpkgs { inherit system; };
-        localPkgs = { };
-        localModules = { };
+        localPkgs = import ./packages/top-level.nix;
+        localModules = import ./modules/top-level.nix;
       in
       rec {
         packages = flake-utils.lib.flattenTree localPkgs;
