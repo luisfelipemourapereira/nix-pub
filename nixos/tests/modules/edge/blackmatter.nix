@@ -20,7 +20,7 @@ mkTest {
   nodes.machine =
     {
       imports = [ ../../../../modules/role/blackmatter.nix ];
-      edge.blackmatter.enable = true;
-      edge.blackmatter.host = case_0.hostName;
+      blackmatter.enable = true;
+      blackmatter.host = case_0.hostName;
     };
 }
