@@ -1,0 +1,3 @@
+{
+  description = "public nix things";
+}
