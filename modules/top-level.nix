@@ -1,3 +1,3 @@
-{ 
-  role.blackmatter = import ./role/blackmatter.nix;
+{
+  blackmatter = import ./role/blackmatter.nix;
 }
