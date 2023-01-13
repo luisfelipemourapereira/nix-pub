@@ -3,7 +3,7 @@
 # top-level for your personal linux environments
 ###############################################################################
 
-{ config, lib, modulesPath, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -402,50 +402,6 @@ in
       })
 
       ####################################################################### @
-
-      #########################################################################
-      # implement dotfile users
-      #########################################################################
-
-      (mkIf cfg.dotfile.enable {
-        users.mutableUsers = false;
-        users.defaultUserShell = pkgs.zsh;
-
-        # user made for sshing in and fixing things
-        users.users.diagnostics = {
-          uid = 1002;
-          isNormalUser = true;
-          hashedPassword = "$6$4k6ZEsBqkvd5CM86$dDm8optLRzThRk5VBobPWsMh5YmG1ep2n.myvA06a9R22DwyKZr4hxRCO5KghxazAzRPjTvfNK9c4d4VEKoWR/";
-          extraGroups = cfg.dotfile.userGroups;
-        };
-        users.users.t3rro = {
-          uid = 1001;
-          isNormalUser = true;
-          hashedPassword = "$6$iEbWk9joSXF6AwZC$YmmLJZ.2LYTWKoMojsxa1y95K99GSnp3UDl2GbqgNhJrEjg8q72zrw3tICPvUtxjfOgj/ZN0l8.K7n.3VPYUH.";
-          extraGroups = cfg.dotfile.userGroups;
-        };
-        users.users.luis = {
-          uid = 1000;
-          isNormalUser = true;
-          hashedPassword = "$6$4k6ZEsBqkvd5CM86$dDm8optLRzThRk5VBobPWsMh5YmG1ep2n.myvA06a9R22DwyKZr4hxRCO5KghxazAzRPjTvfNK9c4d4VEKoWR/";
-          extraGroups = cfg.dotfile.userGroups;
-        };
-      })
-
-      ####################################################################### @
-
-      #########################################################################
-      # implement dotfile users
-      #########################################################################
-
-      (mkIf cfg.sites.tap.enable {
-        environment.etc."openvpn/tapVPN.conf".source = ../../openvpn/tapVPN.conf;
-        services.openvpn.servers = {
-          tapVPN = { config = '' config /etc/openvpn/tapVPN.conf''; };
-        };
-      })
-
-      #############################################################################@
 
       #########################################################################
       # destkop environment
