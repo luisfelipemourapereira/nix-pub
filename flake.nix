@@ -11,7 +11,7 @@
       in
       rec {
         packages = flake-utils.lib.flattenTree localPkgs;
-        nixosModules = flake-utils.lib.flattenTree localModules;
+        nixosModules.default = localModules.blackmatter;
       }
     );
 }
