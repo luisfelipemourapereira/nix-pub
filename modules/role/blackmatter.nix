@@ -8,7 +8,7 @@
 with lib;
 
 let
-  cfg = config.role.blackmatter;
+  cfg = config.blackmatter;
 in
 {
   #############################################################################
@@ -16,9 +16,9 @@ in
   # declare an options schema to control how the module is used
   #############################################################################
 
-  options.role.blackmatter.enable = mkEnableOption "blackmatter";
+  options.blackmatter.enable = mkEnableOption "blackmatter";
 
-  options.role.blackmatter.system.version = mkOption {
+  options.blackmatter.system.version = mkOption {
     type = types.str;
     default = "22.05";
     description = lib.mkDoc ''
@@ -27,7 +27,7 @@ in
   };
 
   # sites
-  options.role.blackmatter.sites.tap.enable = mkOption {
+  options.blackmatter.sites.tap.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mkDoc ''
@@ -36,7 +36,7 @@ in
   };
 
   # build system to cli level
-  options.role.blackmatter.cli.enable = mkOption {
+  options.blackmatter.cli.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -44,7 +44,7 @@ in
     '';
   };
 
-  options.role.blackmatter.cli.packages = mkOption {
+  options.blackmatter.cli.packages = mkOption {
     type = types.listOf types.package;
     default = with pkgs; [
       traceroute
@@ -95,7 +95,7 @@ in
     '';
   };
 
-  options.role.blackmatter.virtualization.enable = mkOption {
+  options.blackmatter.virtualization.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mdDoc ''
@@ -103,7 +103,7 @@ in
     '';
   };
 
-  options.role.blackmatter.hydra.enable = mkOption {
+  options.blackmatter.hydra.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mdDoc ''
@@ -111,7 +111,7 @@ in
     '';
   };
 
-  options.role.blackmatter.ssh.enable = mkOption {
+  options.blackmatter.ssh.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -119,7 +119,7 @@ in
     '';
   };
 
-  options.role.blackmatter.vagrant.enable = mkOption {
+  options.blackmatter.vagrant.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -127,7 +127,7 @@ in
     '';
   };
 
-  options.role.blackmatter.desktop.enable = mkOption {
+  options.blackmatter.desktop.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mdDoc ''
@@ -135,7 +135,7 @@ in
     '';
   };
 
-  options.role.blackmatter.desktop.packages = mkOption {
+  options.blackmatter.desktop.packages = mkOption {
     type = types.listOf types.package;
     default = with pkgs;[
       beekeeper-studio
@@ -157,7 +157,7 @@ in
     '';
   };
 
-  options.role.blackmatter.boot.enable = mkOption {
+  options.blackmatter.boot.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -165,7 +165,7 @@ in
     '';
   };
 
-  options.role.blackmatter.dotfile.enable = mkOption {
+  options.blackmatter.dotfile.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mdDoc ''
@@ -173,7 +173,7 @@ in
     '';
   };
 
-  options.role.blackmatter.wireless.enable = mkOption {
+  options.blackmatter.wireless.enable = mkOption {
     type = types.bool;
     default = false;
     description = lib.mdDoc ''
@@ -181,7 +181,7 @@ in
     '';
   };
 
-  options.role.blackmatter.nix.enable = mkOption {
+  options.blackmatter.nix.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -189,7 +189,7 @@ in
     '';
   };
 
-  options.role.blackmatter.allowUnfree.enable = mkOption {
+  options.blackmatter.allowUnfree.enable = mkOption {
     type = types.bool;
     default = true;
     description = lib.mdDoc ''
@@ -198,24 +198,24 @@ in
   };
 
   # wireless interfaces
-  options.role.blackmatter.wireless.interfaces = mkOption {
+  options.blackmatter.wireless.interfaces = mkOption {
     type = types.listOf types.str;
     default = [ "wlp0s20f3" ];
   };
 
   # system hostname
-  options.role.blackmatter.host = mkOption {
+  options.blackmatter.host = mkOption {
     type = types.str;
   };
 
   # grub boot devices
-  options.role.blackmatter.grub.devices = mkOption {
+  options.blackmatter.grub.devices = mkOption {
     type = types.listOf types.str;
     default = [ "/dev/nvme0n1" ];
   };
 
   # groups assigned to dotfile users
-  options.role.blackmatter.dotfile.userGroups = mkOption {
+  options.blackmatter.dotfile.userGroups = mkOption {
     type = types.listOf types.str;
     default = [
       # give user sudo
