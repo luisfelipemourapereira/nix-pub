@@ -1,0 +1,3 @@
+{
+  recursiveMerge = import ./recursiveMerge.nix;
+}
