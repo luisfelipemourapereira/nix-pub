@@ -4,7 +4,7 @@ with lib;
 let
 
   dataDir = "/var/lib/consul";
-  cfg = bm.services.consul;
+  cfg = config.bm.services.consul;
 
   configOptions = {
     data_dir = dataDir;
