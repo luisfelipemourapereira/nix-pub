@@ -19,7 +19,7 @@ mkTest {
 
   nodes.machine =
     {
-      imports = [ ../../../../modules/services/consul.nix ];
+      imports = [ ../../../modules/services/consul.nix ];
       consul.enable = true;
     };
 }
