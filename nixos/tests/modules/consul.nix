@@ -2,7 +2,7 @@
 # test: ./modules/services/consul.nix
 ################################################################################
 let
-  mkTest = import ../../../../functions/testing/mkTest.nix;
+  mkTest = import ../../../functions/testing/mkTest.nix;
   case_0 = {
     hostName = "consul";
   };
