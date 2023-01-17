@@ -22,5 +22,6 @@ mkTest {
       imports = [ ../../../modules/services/consul.nix ];
       networking.hostName = case_0.hostName;
       consul.enable = true;
+      consul.devMode = true;
     };
 }
